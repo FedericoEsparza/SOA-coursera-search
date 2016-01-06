@@ -1,0 +1,23 @@
+﻿.jumbotron
+{
+    background-color: rgba(19, 39, 120, 0.32);
+    text-transform: uppercase;
+}
+img {
+    width: 100%;
+    height: auto;
+    min-height:50px;
+    min-height:100px;
+    background-repeat:no-repeat;
+    background-position: top center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+h2
+{
+    font-weight:500;
+    fill-opacity: .5;
+    font-family:Andy;
+}

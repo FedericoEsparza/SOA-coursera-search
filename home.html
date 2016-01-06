@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Coursera search for courses offering Statements of Accomplishment</title>
+    <link rel='stylesheet' href='./styles/bootstrap.min.css' />
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <style>
+
+    </style>
+    <link href="/styles/StyleSheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <div class='container'>
+        <div class='container'>
+            <div class="jumbotron col-sm-12 text-center">
+                <h2>Coursera courses still offering Statements of Accomplishment</h2>
+                <div>
+                    <img class="img-responsive" src="./images/0301833.jpg"  title="Expedition Seven Takes Breathtaking Photo of Earth's Atmosphere" alt="Expedition Seven Takes Breathtaking Photo of Earth's Atmosphere" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class='container'>
+        <div class='row'>
+            <div class='col-sm-6'>
+                <h3>Course Start Date:</h3>
+                <br />
+                <div name="myform" role="form" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="Day" class="control-label col-sm-3">Day:</label>
+                        <div class='col-sm-6'>
+                            <input type="text" class="form-control" name="Day" id="Day" placeholder="Day" /> (i.e. 1)
+                        </div>
+                    </div>
+                        <br />
+                        <br />
+                    <div class="form-group">
+                        <label for="Month" class="control-label col-sm-3">Month:</label>
+                        <div class='col-sm-6'>
+                            <input type="text" class="form-control" name="Month" id="Month" placeholder="Month" /> (i.e. 2)
+                        </div>
+                    </div>
+                        <br />
+                        <br />
+                    <div class="form-group">
+                        <label for="yyyy" class="control-label col-sm-3">Year:</label>
+                        <div class='col-sm-6' >
+                            <input type="text" class="form-control" name="yyyy" id="yyyy" placeholder="yyyy" /> (i.e. 2016)
+                        </div>
+                    </div>
+                        <br />
+                        <br />
+                    <div class="form-group">
+                        <label for="Search_by" class="control-label col-sm-3">Search by :</label>
+                        <div class="col-sm-9 btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary active">
+                                <input type="radio" name="Search_by" id="DAY" value="DAY" checked />DAY
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" name="Search_by" id="MONTH"  value="MONTH"/>MONTH
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" name="Search_by" id="YEAR"  value="YEAR"/>YEAR
+                            </label>
+                        </div>
+                    </div>
+                        <br />
+                        <br />
+                    <div class="form-group">
+                        <label class="btn btn-success col-sm-6 col-sm-offset-3">SUBMIT</label>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class='col-sm-6'>
+                <h3>Course Search Results:</h3>
+                <br />
+                <div id="results">
+                </div>
+            </div>
+        </div>
+        <address>
+            <div class="col-sm-12 text-center">
+                <h6><a href="mailto:FedericoEsparza@Outlook.com" >Questions? Email me</a></h6>
+            </div>
+        </address>
+
+    <!--local jquery bootstrap scripts-->
+    <script src='./scripts/jquery-2.1.4.min.js'> </script>
+    <script src='./scripts/bootstrap.min.js'> </script>
+
+
+    <script>
+        //Makes DAY, MONTH, YEAR buttons active when clicked
+        $("btn-group > .btn").click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+    </script>
+    <script>
+        // retrieves coursera api with start dates and certificate info.
+        $(".btn-success").click(function apiJSON() {
+            $.ajax({
+                type: 'GET',
+                url: "https://api.coursera.org/api/catalog.v1/sessions?fields=startYear,startMonth,startDay,eligibleForCertificates,shortName,shortDescription",
+                data: { get_param: 'value' },
+                dataType: 'json',
+                success: function (data) {
+                    $('#results-list').remove();
+                    $('#results').append($('<div id="results-list"></div>'));
+                    $.each(data.elements, function (index, element) {
+                        //Runs if search by DAY is clicked and Day, Month, Year filled in
+                        if ($("#DAY").parent().hasClass("active")) {
+                            if ((element.startDay == parseInt($('#Day').val())) &&
+                                (element.startMonth == parseInt($('#Month').val())) &&
+                                (element.startYear == parseInt($('#yyyy').val())) &&
+                                (element.eligibleForCertificates == true)) {
+                                $('#results-list').append($('<div><a href="' + element.homeLink + '">' + element.startMonth + '/' +
+                                    element.startDay + '/' + element.startYear + '</a></div>')
+                                ); //end body append
+                            } //end if
+                        }; //end if
+                        //Runs if search by Month is clicked and Month, Year filled in
+                        if ($("#MONTH").parent().hasClass("active")) {
+                            if ((element.startMonth == parseInt($('#Month').val())) &&
+                                (element.startYear == parseInt($('#yyyy').val())) &&
+                                (element.eligibleForCertificates == true)) {
+                                $('#results-list').append($('<div><a href="' + element.homeLink + '">' + element.startMonth + '/' +
+                                    element.startDay + '/' + element.startYear + '</a></div>')
+                                ); //end body append
+                            } //end if
+                        }; //end if
+                        //Runs if search by YEAR is clicked and Year filled in 
+                        if ($("#YEAR").parent().hasClass("active")) {
+                            if ((element.startYear == parseInt($('#yyyy').val())) &&
+                                (element.eligibleForCertificates == true)) {
+                                $('#results-list').append($('<div><a href="' + element.homeLink + '">' + element.startMonth + '/' +
+                                    element.startDay + '/' + element.startYear + '</a></div>')
+                                ); //end body append
+                            } //end if
+                        }; //end if
+                    }); //end each loop
+
+                } //end success
+            }); //end ajax
+        } //end function
+    ); //end click
+
+    </script>
+</body>
+</html>
+
