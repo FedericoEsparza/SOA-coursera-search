@@ -111,6 +111,11 @@
                     $('#results-list').remove();
                     $('#results').append($('<div id="results-list"></div>'));
                     $.each(data.elements, function (index, element) {
+                        //Retrieve course shortname to display in results
+                        var url = document.createElement('a');
+                        url.href = element.homeLink;
+                        var courseraPath = url.pathname.split('-');
+                        var shortName = courseraPath[0];
                         //Runs if search by DAY is clicked and Day, Month, Year filled in
                         if ($("#DAY").parent().hasClass("active")) {
                             if ((element.startDay == parseInt($('#Day').val())) &&
@@ -118,7 +123,7 @@
                                 (element.startYear == parseInt($('#yyyy').val())) &&
                                 (element.eligibleForCertificates == true)) {
                                 $('#results-list').append($('<div><a href="' + element.homeLink + '">' + element.startMonth + '/' +
-                                    element.startDay + '/' + element.startYear + '</a></div>')
+                                    element.startDay + '/' + element.startYear + ' ' + shortName +'</a></div>')
                                 ); //end body append
                             } //end if
                         }; //end if
@@ -128,7 +133,7 @@
                                 (element.startYear == parseInt($('#yyyy').val())) &&
                                 (element.eligibleForCertificates == true)) {
                                 $('#results-list').append($('<div><a href="' + element.homeLink + '">' + element.startMonth + '/' +
-                                    element.startDay + '/' + element.startYear + '</a></div>')
+                                    element.startDay + '/' + element.startYear + ' ' + shortName + '</a></div>')
                                 ); //end body append
                             } //end if
                         }; //end if
@@ -137,7 +142,7 @@
                             if ((element.startYear == parseInt($('#yyyy').val())) &&
                                 (element.eligibleForCertificates == true)) {
                                 $('#results-list').append($('<div><a href="' + element.homeLink + '">' + element.startMonth + '/' +
-                                    element.startDay + '/' + element.startYear + '</a></div>')
+                                    element.startDay + '/' + element.startYear + ' ' + shortName + '</a></div>')
                                 ); //end body append
                             } //end if
                         }; //end if
