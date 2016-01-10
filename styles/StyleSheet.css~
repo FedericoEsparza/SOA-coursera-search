@@ -1,13 +1,19 @@
-﻿.jumbotron
+.jumbotron
 {
     background-color: rgba(19, 39, 120, 0.32);
-    text-transform: uppercase;
+    padding: 10px 10px 10px 10px;
 }
-img {
+.img-header {
+    background-image: url("../images/0301833.jpg");
+    border: 0;
+    padding: 10px 10px 10px 10px;
+    margin-top: -10px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    display: block;
+    max-width: 100% !important;
+    height: 300px;
     width: 100%;
-    height: auto;
-    min-height:50px;
-    min-height:100px;
     background-repeat:no-repeat;
     background-position: top center;
     background-size: cover;
@@ -15,7 +21,8 @@ img {
     -moz-background-size: cover;
     -o-background-size: cover;
 }
-h2
+
+h2,h3,h4
 {
     font-weight:500;
     fill-opacity: .5;
