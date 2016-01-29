@@ -62,6 +62,13 @@ function apiJSON() {
                 }; //end if
             }); //end each loop
 
+            // Display message for no results
+            if ($.trim($('#results-list').html()) == '') {
+                $('#results-list').remove();
+                $('#results').append($('<div id="results-list"></div>'));
+                $('#results-list').append($('<div>0 results found</a></div>'));
+            } //end if
+            
         } //end success
     }); //end ajax
 }; //end function
