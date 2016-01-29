@@ -19,7 +19,7 @@ function apiJSON() {
         dataType: 'json',
         success: function (data) {
             $('#results-list').remove();
-            $('#results').append($('<div id="results-list"></div>'));
+            $('#results').append($('<div id="results-list"></div>')).slideUp(100);
             $.each(data.elements, function (index, element) {
             
                 //Retrieve course shortname to display in results
@@ -61,12 +61,12 @@ function apiJSON() {
                     } //end if
                 }; //end if
             }); //end each loop
+            $('#results').fadeIn(900);
 
             // Display message for no results
             if ($.trim($('#results-list').html()) == '') {
-                $('#results-list').remove();
-                $('#results').append($('<div id="results-list"></div>'));
-                $('#results-list').append($('<div>0 results found</a></div>'));
+                $('#results-list').append($('<p> 0  results found</p>'));
+                $('#results').fadeIn(900);
             } //end if
             
         } //end success
