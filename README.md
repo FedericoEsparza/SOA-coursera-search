@@ -15,6 +15,6 @@ courses that do, and to search for courses in retrospect, going back to 2012.
  
 Given this, the app will remain an archived prototype, and will not be developed further.
   
-  
+**_UPDATE(2/24/2018):_** Coursera retired their original API that served the back-end data for this app. App won't display any results in current state. Coursera has evolved significantly in the last several years; for better or worse.
   
 Email questions to [FedericoEsparza@Outlook.com](mailto:FedericoEsparza@Outlook.com)
