@@ -32,7 +32,16 @@ body {
 
 h2,h3,h4
 {
-    font-weight:200;
+    font-weight:100;
     fill-opacity: .5;
-    font-family: Andy,Brush Script MT,Trebuchet MS,Tahoma,Lucida Grande,Lucida Sans Unicode,Lucida Sans,sans-serif;
+    letter-spacing: .4rem;
+    font-family: 'Raleway', Andy,Brush Script MT,Trebuchet MS,Tahoma,Lucida Grande,Lucida Sans Unicode,Lucida Sans,sans-serif;
+}
+
+.form-group
+{
+    font-weight:100;
+    fill-opacity: .5;
+    letter-spacing: .4rem;
+    font-family: 'Raleway', sans-serif;
 }
