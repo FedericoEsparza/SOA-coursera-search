@@ -1,6 +1,12 @@
 body {
+    /* background-image: url("../images/11572307115_1194957269_o.jpg"); */
+}
+
+
+.background-image {
     background-image: url("../images/11572307115_1194957269_o.jpg");
 }
+
 
 .outer-opacity-filter {
     background: rgba(0, 0, 0, 0.8);

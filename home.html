@@ -2,6 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Coursera search for courses offering Statements of Accomplishment</title>
     <meta name="DC.title" content="Coursera search for courses offering Statements of Accomplishment">
     <meta name="DC.creator" content="Federico Esparza">
@@ -12,8 +13,10 @@
     <link rel='stylesheet' href='./styles/bootstrap.min.css' />
     <link href="https://fonts.googleapis.com/css?family=Raleway:100i" rel="stylesheet">
     <link href="/styles/StyleSheet.css" rel="stylesheet" type="text/css" />
+    
 </head>
 <body>
+<div class="background-image"> 
   <div class="outer-opacity-filter">
     <div class="img-responsive img-header" alt="Astronaut Mike Hopkins on December 24, 2013 spacewalk">
         <div class="col-sm-12 text-center">
@@ -34,15 +37,15 @@
                 <br />
                 <div name="myform" role="form" class="form-horizontal">
                     <div class="form-group">
-                        <label for="Search_by" class="control-label col-sm-3">Search by :</label>
-                        <div class="col-sm-9 btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary">
+                        <label for="Search_by" class="control-label col-sm-3 col-md-2">Search by:</label>
+                        <div class="col-sm-8 col-md-10 btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary col-sm-9 col-md-3">
                                 <input type="radio" name="Search_by" id="DAY" value="DAY" />DAY
                             </label>
-                            <label class="btn btn-primary active">
+                            <label class="btn btn-primary active col-sm-9 col-md-3">
                                 <input type="radio" name="Search_by" id="MONTH"  value="MONTH" checked />MONTH
                             </label>
-                            <label class="btn btn-primary">
+                            <label class="btn btn-primary col-sm-9 col-md-3">
                                 <input type="radio" name="Search_by" id="YEAR"  value="YEAR"/>YEAR
                             </label>
                         </div>
@@ -74,7 +77,9 @@
                     <br />
                     <br />
                     <div class="form-group">
-                        <label class="btn btn-success col-sm-6 col-sm-offset-3">SUBMIT</label>
+                        <div class='row'>
+                            <label class="btn btn-success col-sm-4 col-xs-4 col-xs-offset-4">SUBMIT</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,6 +97,7 @@
             </div>
         </address>
   </div>
+</div>
     <!--local jquery, bootstrap, home scripts-->
     <script src='./scripts/jquery-2.1.4.min.js'> </script>
     <script src='./scripts/bootstrap.min.js'> </script>
